@@ -50,9 +50,6 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
-# Audio
-TARGET_EXCLUDES_AUDIOFX := true
-
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
@@ -109,6 +106,25 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor \
     libdrm.vendor \
     libutils-v32
+
+# Dolby Permissions
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/dolby/permissions,$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions)
+
+# Dolby MediaCodecs Loading Support (Overwrites Vendor files)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/media/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml
+
+# MiSound
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.audio.misound.disable=true \
+    ro.vendor.audio.misound.bluetooth.enable=true
+
+# Remove Packages for Dolby Support
+PRODUCT_PACKAGES += \
+    RemovePackagesDolby
+
+PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
 
 # DRM
 PRODUCT_PACKAGES += \

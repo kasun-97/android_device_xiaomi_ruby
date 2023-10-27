@@ -1354,11 +1354,13 @@ vendor/etc/cust_color_dsi_m16_42_0d_0a_dsc_vdo.xml
 vendor/etc/cust_color_dsi_m16_45_02_0c_dsc_vdo.xml
 
 # Dolby
+system/lib/vendor.dolby.hardware.dms@2.0.so
+system/lib64/vendor.dolby.hardware.dms@2.0.so
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
 vendor/etc/dolby/dax-default.xml
 vendor/etc/dolby/dax-rubypro.xml
 vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
--vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
+vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
 vendor/lib/soundfx/libswdap.so
 vendor/lib/soundfx/libswgamedap.so
 vendor/lib/soundfx/libswvqe.so
